@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>K-means Clustering Visualization</title>
+    <style>
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>K-means Clustering Visualization</h1>
+        <img id="cluster-plot" src="data:image/png;base64,{{ image }}" alt="Cluster Plot">
+        <br>
+        <button id="iterate-btn" onclick="iterate()">迭代一次</button>
+    </div>
+
+    <script>
+        function iterate() {
+            fetch('/iterate')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cluster-plot').src = 'data:image/png;base64,' + data.image;
+                    if (data.finished) {
+                        document.getElementById('iterate-btn').disabled = true;
+                    }
+                });
+        }
+    </script>
+</body>
+</html>

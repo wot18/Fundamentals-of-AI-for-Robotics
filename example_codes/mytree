@@ -1,0 +1,14 @@
+digraph Tree {
+node [shape=box, style="filled", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+rankdir=LR ;
+0 [label="income <= 16000.0\nentropy = 0.918\nsamples = 6\nvalue = [4, 2]\nclass = regular", fillcolor="#f2c09c"] ;
+1 [label="entropy = 0.0\nsamples = 3\nvalue = [3, 0]\nclass = regular", fillcolor="#e58139"] ;
+0 -> 1 [labeldistance=2.5, labelangle=-45, headlabel="True"] ;
+2 [label="age <= 40.5\nentropy = 0.918\nsamples = 3\nvalue = [1, 2]\nclass = VIP", fillcolor="#9ccef2"] ;
+0 -> 2 [labeldistance=2.5, labelangle=45, headlabel="False"] ;
+3 [label="entropy = 0.0\nsamples = 2\nvalue = [0, 2]\nclass = VIP", fillcolor="#399de5"] ;
+2 -> 3 ;
+4 [label="entropy = 0.0\nsamples = 1\nvalue = [1, 0]\nclass = regular", fillcolor="#e58139"] ;
+2 -> 4 ;
+}
